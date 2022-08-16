@@ -1,0 +1,7 @@
+.lists {
+  @apply m-0 p-0;
+}
+
+.lists li {
+  @apply cursor-pointer relative py-2 pr-2 pl-10 list-none text-lg bg-neutral-400 odd:bg-white hover:bg-sky-700 transition ease-in-out delay-75;
+}

@@ -1,0 +1,12 @@
+.formInput {
+  @apply mx-2;
+}
+
+.formInput input[type="text"],
+select {
+  @apply w-full py-3 px-5 my-8 mx-0 inline-block rounded border border-solid border-slate-400 box-border animate-pulse;
+}
+
+input::placeholder {
+  @apply font-bold opacity-50 animate-pulse;
+}

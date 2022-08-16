@@ -1,0 +1,11 @@
+.header {
+  @apply flex justify-between w-full p-3 items-center bg-gray-100;
+}
+
+.logo {
+  @apply h-10;
+}
+
+.searchAdd {
+  @apply flex justify-between items-center;
+}
