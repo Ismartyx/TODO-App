@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 
 const ToDoList = ({ dataList, handleToggle }) => {
   const handleClick = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     handleToggle(e.currentTarget.id);
   };
 
