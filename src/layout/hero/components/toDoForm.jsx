@@ -7,6 +7,9 @@ const ToDoForm = ({ addTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (e.target.taskName.value === "") {
+      return;
+    }
     addTask(e.target.taskName.value);
     setUserInput("");
   };
@@ -18,9 +21,10 @@ const ToDoForm = ({ addTask }) => {
         name="taskName"
         value={userInput}
         onChange={({ target: { value } }) => setUserInput(value)}
+        onInvalid={!userInput}
         placeholder="Enter task..."
       />
-      <AddItem />
+      <AddItem disabled={userInput} />
     </form>
   );
 };
