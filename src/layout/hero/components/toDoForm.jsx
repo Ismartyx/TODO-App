@@ -1,28 +1,26 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
+import AddItem from "../../header/components/addButt/addButt";
 
-const ToDoForm = ({ addTask, isActive, setIsActive }) => {
+const ToDoForm = ({ addTask }) => {
   const [userInput, setUserInput] = useState();
 
-  const handleChange = (e) => {
-    setUserInput(e.currentTarget.value);
-  };
-
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    addTask(userInput);
+    e.preventDefault();
+    addTask(e.target.taskName.value);
     setUserInput("");
-    setIsActive("invisible");
   };
 
   return (
     <form className={styles.formInput} onSubmit={handleSubmit}>
       <input
-        className={isActive}
         type="text"
-        onChange={handleChange}
+        name="taskName"
+        value={userInput}
+        onChange={({ target: { value } }) => setUserInput(value)}
         placeholder="Enter task..."
       />
+      <AddItem />
     </form>
   );
 };
