@@ -1,12 +1,10 @@
 import Searchbar from "./components/searchbar/searchbar";
-import AddItem from "./components/addButt/addButt";
 import styles from "./styles.module.css";
 
-const Header = ({ handleFilter, handleClick }) => {
+const Header = ({ handleFilter }) => {
   return (
     <header className={styles.header}>
       <div className="flex">
-        <AddItem handleClick={handleClick} />
         <button className="ml-5" onClick={handleFilter}>
           Clear Completed
         </button>
