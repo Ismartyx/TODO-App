@@ -1,7 +1,7 @@
 import Searchbar from "./components/searchbar/searchbar";
 import styles from "./styles.module.css";
 
-const Header = ({ handleFilter }) => {
+const Header = ({ handleFilter, setSearchTerm }) => {
   return (
     <header className={styles.header}>
       <div className="flex">
@@ -13,7 +13,7 @@ const Header = ({ handleFilter }) => {
         To-Do List
       </h1>
       <div className={styles.searchAdd}>
-        <Searchbar />
+        <Searchbar setSearchTerm={setSearchTerm} />
       </div>
     </header>
   );

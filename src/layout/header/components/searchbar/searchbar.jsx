@@ -1,4 +1,4 @@
-const Searchbar = () => {
+const Searchbar = ({ setSearchTerm }) => {
   return (
     <div>
       <form className="flex items-center">
@@ -7,6 +7,7 @@ const Searchbar = () => {
           className="mr-5 rounded outline outline-offset-2 outline-1 hover:outline-2"
           type="search"
           placeholder="Search your work"
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
     </div>
