@@ -1,5 +1,5 @@
 .formInput {
-  @apply mx-2;
+  @apply mx-2 flex items-center;
 }
 
 .formInput input[type="text"],
