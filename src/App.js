@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Header from "./layout/header";
 import ToDoList from "./layout/hero";
@@ -7,8 +6,7 @@ import { useLocalStorageState } from "./layout/hero/components/LocalStorageState
 import { nanoid } from "nanoid";
 
 function App() {
-  const [toDoList, setToDoList] = useLocalStorageState("tasks");
-  const [isActive, setIsActive] = useState("invisible");
+  const [toDoList, setToDoList] = useLocalStorageState("tasks", []);
 
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => {
@@ -26,10 +24,6 @@ function App() {
     setToDoList(filtered);
   };
 
-  const handleClick = () => {
-    setIsActive("visible");
-  };
-
   const addTask = (userInput) => {
     let copy = [...toDoList];
     copy = [...copy, { id: nanoid(), task: userInput, complete: false }];
@@ -38,12 +32,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header handleFilter={handleFilter} handleClick={handleClick} />
-      <ToDoForm
-        addTask={addTask}
-        isActive={isActive}
-        setIsActive={setIsActive}
-      />
+      <Header handleFilter={handleFilter} />
+      <ToDoForm addTask={addTask} />
       <ToDoList dataList={toDoList} handleToggle={handleToggle} />
     </div>
   );
