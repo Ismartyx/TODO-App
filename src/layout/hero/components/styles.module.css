@@ -1,12 +1,17 @@
 .formInput {
-  @apply mx-2 flex items-center;
+  @apply mx-2 my-5 flex flex-col bg-slate-300 rounded-lg;
 }
 
-.formInput input[type="text"],
+.formInput .taskInput,
 select {
-  @apply w-full py-3 px-5 my-8 mx-0 inline-block rounded border border-solid border-slate-400 box-border animate-pulse;
+  @apply w-full py-3 px-5 border-b-0 mx-0 inline-block rounded-t-md border border-solid border-slate-400 box-border outline-0;
+}
+
+.formInput .descInput,
+select {
+  @apply w-full py-3 px-5 border-b-0 mx-0 inline-block  border border-solid border-slate-400 box-border outline-0;
 }
 
 input::placeholder {
-  @apply font-bold opacity-50 animate-pulse;
+  @apply font-bold opacity-50;
 }

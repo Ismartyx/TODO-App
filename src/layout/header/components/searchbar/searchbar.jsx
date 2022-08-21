@@ -1,14 +1,17 @@
+import styles from "./styles.module.css";
+
 const Searchbar = ({ setSearchTerm }) => {
   return (
-    <div>
-      <form className="flex items-center">
-        <img src="./search.png" alt="search icon" className="h-5 mr-2" />
-        <input
-          className="mr-5 rounded outline outline-offset-2 outline-1 hover:outline-2"
-          type="search"
-          placeholder="Search your work"
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+    <div className={styles.flexbox}>
+      <form className={styles.searchbar}>
+        <div>
+          <input
+            className={styles.searchInput}
+            type="search"
+            placeholder="Search your work"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
       </form>
     </div>
   );
