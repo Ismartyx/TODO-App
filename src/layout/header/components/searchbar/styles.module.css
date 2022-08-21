@@ -1,0 +1,56 @@
+.flexbox {
+  /* background: #F8FAFC; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar {
+  margin: 10px;
+}
+
+.searchbar > div {
+  display: inline-block;
+  position: relative;
+}
+
+.searchbar > div:after {
+  content: "";
+  background: #f8fafc;
+  width: 4px;
+  height: 10px;
+  position: absolute;
+  top: 21px;
+  right: 1px;
+  transform: rotate(135deg);
+}
+
+.searchbar > div > input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  width: 20px;
+  height: 15px;
+  padding: 10px;
+  border: solid 3px #f8fafc;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.searchbar > div > input::placeholder {
+  color: #e2e8f0;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.searchbar > div > input:focus::placeholder {
+  opacity: 1;
+}
+
+.searchbar > div > input:focus,
+.searchbar > div > input:not(:placeholder-shown) {
+  width: 250px;
+}
