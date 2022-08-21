@@ -1,7 +1,85 @@
 .lists {
-  @apply m-0 p-0;
+  @apply mx-2 my-5 grid grid-cols-5 gap-2.5 grid-flow-row;
 }
 
 .lists li {
-  @apply cursor-pointer relative py-2 pr-2 pl-10 list-none text-lg bg-neutral-400 odd:bg-white hover:bg-sky-700 transition ease-in-out delay-75;
+  @apply flex flex-row px-2 py-2 h-[86px] border-2 rounded;
+}
+
+.trash {
+  background: black;
+  width: 66px;
+  height: 80px;
+  display: inline-block;
+  margin-right: -250px;
+  position: relative;
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.trash span {
+  position: absolute;
+  height: 12px;
+  background: black;
+  top: -19px;
+  left: -10px;
+  right: -10px;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: rotate(0deg);
+  transition: transform 250ms;
+  transform-origin: 19% 100%;
+}
+.trash span:after {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 7px;
+  background: black;
+  top: -10px;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: rotate(0deg);
+  transition: transform 250ms;
+  transform-origin: 19% 100%;
+  left: 27px;
+}
+
+.trash i {
+  position: relative;
+  width: 5px;
+  height: 50px;
+  background: #fff;
+  display: block;
+  margin: 14px auto;
+  border-radius: 5px;
+}
+.trash i:after {
+  content: "";
+  width: 5px;
+  height: 50px;
+  background: #fff;
+  position: absolute;
+  left: -18px;
+  border-radius: 5px;
+}
+.trash i:before {
+  content: "";
+  width: 5px;
+  height: 50px;
+  background: #fff;
+  position: absolute;
+  right: -18px;
+  border-radius: 5px;
+}
+
+.trash:hover span {
+  transform: rotate(-45deg);
+  transition: transform 250ms;
 }
