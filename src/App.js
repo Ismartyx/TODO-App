@@ -19,6 +19,13 @@ function App() {
     setToDoList(mapped);
   };
 
+  const removeToDos = (id) => {
+    const filterTodo = toDoList.filter((task) => {
+      return task.id !== id;
+    });
+    setToDoList(filterTodo);
+  };
+
   const handleFilter = () => {
     let filtered = toDoList.filter((task) => {
       return !task.complete;
@@ -26,9 +33,12 @@ function App() {
     setToDoList(filtered);
   };
 
-  const addTask = (userInput) => {
+  const addTask = (userInput, desc) => {
     let copy = [...toDoList];
-    copy = [...copy, { id: nanoid(), task: userInput, complete: false }];
+    copy = [
+      ...copy,
+      { id: nanoid(), task: userInput, description: desc, complete: false },
+    ];
     setToDoList(copy);
   };
 
@@ -40,6 +50,7 @@ function App() {
         dataList={toDoList}
         handleToggle={handleToggle}
         searchTerm={searchTerm}
+        removeToDos={removeToDos}
       />
     </div>
   );
