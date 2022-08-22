@@ -15,3 +15,7 @@ select {
 input::placeholder {
   @apply font-bold opacity-50;
 }
+
+.floatButt {
+  @apply fixed w-14 h-14 bottom-10 right-10 bg-cyan-700 rounded-full text-center text-xl text-white font-bold shadow-xl shadow-gray-400;
+}
