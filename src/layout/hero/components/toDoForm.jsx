@@ -3,8 +3,8 @@ import styles from "./styles.module.css";
 import AddItem from "../../header/components/addButt/addButt";
 
 const ToDoForm = ({ addTask }) => {
-  const [userInput, setUserInput] = useState();
-  const [userDesc, setUserDesc] = useState();
+  const [userInput, setUserInput] = useState("");
+  const [userDesc, setUserDesc] = useState("");
 
   const handleEnter = (event) => {
     if (event.key.toLowerCase() === "enter") {
@@ -38,7 +38,6 @@ const ToDoForm = ({ addTask }) => {
       <input
         className={styles.descInput}
         type="text"
-        name="taskdescName"
         value={userDesc}
         onChange={(e) => setUserDesc(e.currentTarget.value)}
         placeholder="Add description..."
