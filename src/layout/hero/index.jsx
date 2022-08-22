@@ -1,6 +1,13 @@
 import styles from "./styles.module.css";
+import FloatButt from "./components/floatButt";
 
-const ToDoList = ({ dataList, handleToggle, searchTerm, removeToDos }) => {
+const ToDoList = ({
+  dataList,
+  handleToggle,
+  searchTerm,
+  removeToDos,
+  handleFilter,
+}) => {
   const handleClick = (e) => {
     e.preventDefault();
     handleToggle(e.currentTarget.id);
@@ -98,6 +105,7 @@ const ToDoList = ({ dataList, handleToggle, searchTerm, removeToDos }) => {
             </li>
           );
         })}
+      <FloatButt handleFilter={handleFilter} />
     </ul>
   );
 };

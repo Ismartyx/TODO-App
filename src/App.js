@@ -44,13 +44,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header handleFilter={handleFilter} setSearchTerm={setSearchTerm} />
+      <Header setSearchTerm={setSearchTerm} />
       <ToDoForm addTask={addTask} />
       <ToDoList
         dataList={toDoList}
         handleToggle={handleToggle}
         searchTerm={searchTerm}
         removeToDos={removeToDos}
+        handleFilter={handleFilter}
       />
     </div>
   );
