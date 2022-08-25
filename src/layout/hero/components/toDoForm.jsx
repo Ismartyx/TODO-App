@@ -13,7 +13,7 @@ const ToDoForm = ({ addTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(e.target.taskName.value);
+    addTask(e.target.taskName.value, e.target.descTask.value);
     e.target.reset();
   };
 
@@ -31,6 +31,7 @@ const ToDoForm = ({ addTask }) => {
       <input
         className={styles.descInput}
         type="text"
+        name="descTask"
         placeholder="Add description..."
         autoComplete="off"
         required
