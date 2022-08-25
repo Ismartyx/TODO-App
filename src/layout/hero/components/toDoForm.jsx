@@ -1,11 +1,7 @@
-import { useState } from "react";
 import styles from "./styles.module.css";
 import AddItem from "../../header/components/addButt/addButt";
 
 const ToDoForm = ({ addTask }) => {
-  const [userInput, setUserInput] = useState("");
-  const [userDesc, setUserDesc] = useState("");
-
   const handleEnter = (event) => {
     if (event.key.toLowerCase() === "enter") {
       const form = event.target.form;
@@ -17,9 +13,8 @@ const ToDoForm = ({ addTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(e.target.taskName.value, userDesc);
-    setUserInput("");
-    setUserDesc("");
+    addTask(e.target.taskName.value);
+    e.target.reset();
   };
 
   return (
@@ -28,8 +23,6 @@ const ToDoForm = ({ addTask }) => {
         className={styles.taskInput}
         type="text"
         name="taskName"
-        value={userInput}
-        onChange={({ target: { value } }) => setUserInput(value)}
         placeholder="Add something..."
         autoComplete="off"
         onKeyDown={handleEnter}
@@ -38,13 +31,12 @@ const ToDoForm = ({ addTask }) => {
       <input
         className={styles.descInput}
         type="text"
-        value={userDesc}
-        onChange={(e) => setUserDesc(e.currentTarget.value)}
         placeholder="Add description..."
         autoComplete="off"
+        required
       />
 
-      <AddItem disabled={userDesc} />
+      <AddItem />
     </form>
   );
 };
