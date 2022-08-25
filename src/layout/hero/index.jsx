@@ -1,13 +1,7 @@
 import styles from "./styles.module.css";
 import FloatButt from "./components/floatButt";
 
-const ToDoList = ({
-  dataList,
-  handleToggle,
-  searchTerm,
-  removeToDos,
-  handleFilter,
-}) => {
+const ToDoList = ({ dataList, handleToggle, removeToDos, handleFilter }) => {
   const handleClick = (e) => {
     e.preventDefault();
     handleToggle(e.currentTarget.id);
@@ -50,61 +44,49 @@ const ToDoList = ({
 
   return (
     <ul className={styles.lists}>
-      {dataList
-        .filter((val) => {
-          if (searchTerm === "") {
-            return val;
-          } else if (
-            val.task.toLowerCase().includes(searchTerm.toLowerCase())
-          ) {
-            return val;
-          }
-        })
-        .map((todo) => {
-          return (
-            <li
-              id={todo.id}
-              className={
-                todo.complete
-                  ? "line-through text-cyan-700 transition duration-300"
-                  : ""
-              }
-              style={{
-                // backgroundColor: "#748597",
-
-                backgroundColor: `hsl(${
-                  +203 + "," + 20 + "%," + (60 + 15 * Math.random()) + "%"
-                })`,
-                transition: `background-color 0.8s ease-in`,
-              }}
-              onClick={handleClick}
-              key={todo.id}
-            >
-              <div className="grow">
-                <h1 className="font-bold text-lg">{todo.task}</h1>
-                <h2 className="bg-transparent outline-none mb-4">
-                  {todo.description}
-                </h2>
-              </div>
-              <div className="flex flex-col">
-                <button className="ml-9">{editIcon}</button>
-                <button
-                  type="button"
-                  className="scale-15"
-                  onClick={(e) => {
-                    removeToDos(todo.id);
-                    e.stopPropagation();
-                  }}
-                >
-                  <span className={styles.trash}>
-                    <span></span>
-                    <i></i>
-                  </span>
-                </button>
-              </div>
-            </li>
-          );
-        })}
+      {dataList.map((todo) => {
+        return (
+          <li
+            id={todo.id}
+            className={
+              todo.complete
+                ? "line-through text-cyan-700 transition duration-300"
+                : ""
+            }
+            style={{
+              backgroundColor: `hsl(${
+                +203 + "," + 20 + "%," + (60 + 15 * Math.random()) + "%"
+              })`,
+              transition: `background-color 0.8s ease-in`,
+            }}
+            onClick={handleClick}
+            key={todo.id}
+          >
+            <div className="grow">
+              <h1 className="font-bold text-lg">{todo.task}</h1>
+              <h2 className="bg-transparent outline-none mb-4">
+                {todo.description}
+              </h2>
+            </div>
+            <div className="flex flex-col">
+              <button className="ml-9">{editIcon}</button>
+              <button
+                type="button"
+                className="scale-15"
+                onClick={(e) => {
+                  removeToDos(todo.id);
+                  e.stopPropagation();
+                }}
+              >
+                <span className={styles.trash}>
+                  <span></span>
+                  <i></i>
+                </span>
+              </button>
+            </div>
+          </li>
+        );
+      })}
       <FloatButt handleFilter={handleFilter} />
     </ul>
   );

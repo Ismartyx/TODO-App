@@ -4,11 +4,20 @@ import ToDoList from "./layout/hero";
 import ToDoForm from "./layout/hero/components/toDoForm";
 import { useLocalStorageState } from "./layout/hero/components/LocalStorageState";
 import { nanoid } from "nanoid";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 function App() {
   const [toDoList, setToDoList] = useLocalStorageState("tasks", []);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const dataList = useMemo(() => {
+    if (searchTerm) {
+      return toDoList.filter((todo) =>
+        todo.task.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    return toDoList;
+  }, [searchTerm, toDoList]);
 
   const handleToggle = useCallback(
     (id) => {
@@ -51,9 +60,8 @@ function App() {
       <Header setSearchTerm={setSearchTerm} />
       <ToDoForm addTask={addTask} />
       <ToDoList
-        dataList={toDoList}
+        dataList={dataList}
         handleToggle={handleToggle}
-        searchTerm={searchTerm}
         removeToDos={removeToDos}
         handleFilter={handleFilter}
       />
