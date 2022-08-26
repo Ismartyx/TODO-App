@@ -69,7 +69,14 @@ const ToDoList = ({ dataList, handleToggle, removeToDos, handleFilter }) => {
               </h2>
             </div>
             <div className="flex flex-col">
-              <button className="ml-9">{editIcon}</button>
+              <button
+                className="ml-9"
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              >
+                {editIcon}
+              </button>
               <button
                 type="button"
                 className="scale-15"
